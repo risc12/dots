@@ -1,15 +1,12 @@
 const WRAPPER_ID = "__dots_ext_wrapper";
 
-console.log("This page just loaded");
 firstDraw();
 
 chrome.extension.sendMessage({getTabs: true}, (response) => {
-  console.log(response);
   fillWithData(response);
 });
 
 chrome.extension.onMessage.addListener((response, sender, sendResponse) => {
-  console.warn(response);
   fillWithData(response);
 });
 
